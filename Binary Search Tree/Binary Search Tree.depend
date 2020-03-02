@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1583131841 source:/home/morshed/code/codeblocks/Binary Search Tree/main.cpp
+	<iostream>
+	"bst.h"
+
+1583130123 source:/home/morshed/code/codeblocks/Binary Search Tree/node.cpp
+	"node.h"
+	<cstdlib>
+
+1583128797 /home/morshed/code/codeblocks/Binary Search Tree/node.h
+
+1583131786 source:/home/morshed/code/codeblocks/Binary Search Tree/bst.cpp
+	"node.h"
+	"bst.h"
+	<cstdlib>
+
+1583131910 /home/morshed/code/codeblocks/Binary Search Tree/bst.h
+	"node.h"
+
