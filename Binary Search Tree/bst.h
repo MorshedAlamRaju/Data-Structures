@@ -9,8 +9,7 @@ class BST{
 
     public:
         BST();
-        BST(int arr[]);
-//        ~BST();
+        BST(int arr[], int n);
 
         Node* get_root();
         int get_size();
@@ -26,6 +25,12 @@ class BST{
         void inorder_tree_walk();
         void preorder_tree_walk();
         void postorder_tree_walk();
+
+    private:
+        Node* get_node(int key);
+        void transplant();
+        int get_max(Node *n);
+        int get_min(Node *n);
 
 };
 
