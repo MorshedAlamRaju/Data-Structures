@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1583309091 source:/home/morshed/code/Data-Structures/String/String.cpp
+	"String.h"
+
+1583309141 /home/morshed/code/Data-Structures/String/String.h
+	<iostream>
+	<string.h>
+
+1583309428 source:/home/morshed/code/Data-Structures/String/main.cpp
+	"String.h"
+

@@ -3,34 +3,36 @@
 
 #include "node.h"
 
-class BST{
-    Node *root;
+template<typename T> class BST{
+    Node<T> *root;
     int tree_size;
 
     public:
         BST();
-        BST(int arr[], int n);
+        BST(T arr[], int n);
 
-        Node* get_root();
+        Node<T>* get_root();
+        Node<T>* get_node(T key);
         int get_size();
-        int get_min();
-        int get_max();
-        int get_successor(int key);
-        int get_predecessor(int key);
-        bool search_key(int key);
 
-        void insert_key(int key);
-        void delete_key(int key);
+        T get_max(Node<T> *n);
+        T get_min(Node<T> *n);
+        T get_min();
+        T get_max();
+
+        T get_successor(T key);
+        T get_predecessor(T key);
+        bool search_key(T key);
+
+        void insert_key(T key);
+        void delete_key(T key);
 
         void inorder_tree_walk();
         void preorder_tree_walk();
         void postorder_tree_walk();
 
     private:
-        Node* get_node(int key);
         void transplant();
-        int get_max(Node *n);
-        int get_min(Node *n);
 
 };
 

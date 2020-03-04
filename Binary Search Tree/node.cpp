@@ -1,48 +1,31 @@
 #include "node.h"
 #include <cstdlib>
 
-Node::Node(){
-    key = -1;
+template<typename T> Node<T>::Node(){
     parent = NULL;
     left = NULL;
     right = NULL;
 }
 
-Node::Node(int key){
+template<typename T> Node<T>::Node(T key){
     this->key = key;
     parent = NULL;
     left = NULL;
     right = NULL;
 }
 
-void Node::set_parent(Node *parent){
-    this->parent = parent;
-}
+template<typename T> void Node<T>::set_parent(Node *parent){ this->parent = parent; }
 
-void Node::set_left(Node *left){
-    this->left = left;
-}
+template<typename T> void Node<T>::set_left(Node *left){ this->left = left; }
 
-void Node::set_right(Node *right){
-    this->right = right;
-}
+template<typename T> void Node<T>::set_right(Node *right){ this->right = right; }
 
-void Node::set_key(int key){
-    this->key = key;
-}
+template<typename T> void Node<T>::set_key(T key){ this->key = key; }
 
-int Node::get_key(){
-    return key;
-}
+template<typename T> T Node<T>::get_key(){ return key; }
 
-Node* Node::get_parent(){
-    return parent;
-}
+template<typename T> Node<T>* Node<T>::get_parent(){ return parent; }
 
-Node* Node::get_left(){
-    return left;
-}
+template<typename T> Node<T>* Node<T>::get_left(){ return left; }
 
-Node* Node::get_right(){
-    return right;
-}
+template<typename T> Node<T>* Node<T>::get_right(){ return right; }

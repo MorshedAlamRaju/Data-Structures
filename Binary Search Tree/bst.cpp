@@ -3,13 +3,14 @@
 
 #include<cstdlib>
 
-BST::BST(){
-    root = new Node();
+
+template<typename T> BST<T>::BST(){
+    root = new Node<T>();
     tree_size = 0;
 }
 
-BST::BST(int arr[], int n){
-    root = new Node();
+template<typename T> BST<T>::BST(T arr[], int n){
+    root = new Node<T>();
     tree_size = 0;
 
     int idx  = 0;
@@ -19,28 +20,28 @@ BST::BST(int arr[], int n){
     }
 }
 
-Node* BST::get_root(){
-    return root;
-}
 
-int BST::get_size(){
-    return tree_size;
-}
 
-void BST::insert_key(int key){
-    Node *cur = root;
-    Node *temp = NULL;
+template<typename T> Node<T>* BST<T>::get_root(){ return root; }
+
+
+template<typename T> int BST<T>::get_size(){ return tree_size; }
+
+
+template<typename T> void BST<T>::insert_key(T key){
+    Node<T> *cur = root;
+    Node<T> *temp = NULL;
     tree_size++;
 
     while(cur != NULL){
         temp = cur;
-        int cur_key = cur->get_key();
+        T cur_key = cur->get_key();
         if(cur_key < key)
             cur = cur->get_right();
         else cur = cur->get_left();
     }
 
-    Node *add = new Node(key);
+    Node<T> *add = new Node<T>(key);
     add->set_parent(temp);
 
     if(temp == NULL)
@@ -51,35 +52,40 @@ void BST::insert_key(int key){
         temp->set_right(add);
 }
 
-int BST::get_min(){
-    Node *n = root;
-    while(n->get_left() != NULL)
-        n = n->get_left();
-    return n->get_key();
-}
 
-int BST::get_max(){
-    Node *n = root;
-    while(n->get_right() != NULL)
-        n = n->get_right();
-    return n->get_key();
-}
-
-int BST::get_max(Node *n){
-    while(n->get_right() != NULL)
-        n = n->get_right();
-    return n->get_key();
-}
-
-int BST::get_min(Node *n){
+template<typename T> T BST<T>::get_min(){
+    Node<T> *n = root;
     while(n->get_left() != NULL)
         n = n->get_left();
     return n->get_key();
 }
 
 
-bool BST::search_key(int key){
-    Node *n = root;
+template<typename T> T BST<T>::get_max(){
+    Node<T> *n = root;
+    while(n->get_right() != NULL)
+        n = n->get_right();
+    return n->get_key();
+}
+
+
+template<typename T> T BST<T>::get_max(Node<T> *n){
+    while(n->get_right() != NULL)
+        n = n->get_right();
+    return n->get_key();
+}
+
+
+template<typename T> T BST<T>::get_min(Node<T> *n){
+    while(n->get_left() != NULL)
+        n = n->get_left();
+    return n->get_key();
+}
+
+
+
+template<typename T> bool BST<T>::search_key(T key){
+    Node<T> *n = root;
     while(n != NULL){
         if(n->get_key() == key)
             return true;
@@ -91,8 +97,9 @@ bool BST::search_key(int key){
     return false;
 }
 
-Node* BST::get_node(int key){
-    Node *n = root;
+
+template<typename T> Node<T>* BST<T>::get_node(T key){
+    Node<T> *n = root;
     while(n != NULL){
         if(n->get_key() == key)
             return n;
@@ -104,12 +111,14 @@ Node* BST::get_node(int key){
     return n;
 }
 
-int BST::get_successor(int key){
-    Node *n = get_node(key);
+
+template<typename T> T BST<T>::get_successor(T key){
+    Node<T> *n = get_node(key);
     return get_min(n->get_right());
 }
 
-int BST::get_predecessor(int key){
-    Node *n = get_node(key);
+
+template<typename T> T BST<T>::get_predecessor(T key){
+    Node<T> *n = get_node(key);
     return get_max(n->get_left());
 }
